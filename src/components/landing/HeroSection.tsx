@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Zap } from "lucide-react";
+import { ArrowRight, Brain, Zap, Search, Bookmark, Plus } from "lucide-react";
 
 interface HeroSectionProps {
   title?: string;
@@ -11,8 +11,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-  title = "Organize Your Links with AI-Powered Intelligence",
-  subtitle = "Transform your bookmarks into a smart knowledge base. Save, search, and retrieve your links and notes effortlessly with LinkHiveAI.",
+  title = "Never Lose Another Important Link Again",
+  subtitle = "The AI-powered bookmark assistant for busy creators, researchers, and professionals. Save links with a quick note, find them instantly using natural language.",
   ctaText = "Get Started Free",
   onCtaClick = () => console.log("CTA clicked"),
 }: HeroSectionProps) => {
@@ -97,45 +97,125 @@ const HeroSection = ({
               </div>
               {/* Main content area */}
               <div className="relative bg-background p-6">
-                <div className="grid grid-cols-3 gap-4">
-                  {/* AI-organized bookmarks visualization */}
-                  <div className="col-span-2 space-y-4">
-                    <div className="bg-muted/30 p-4 rounded-lg border border-border/50">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <Brain className="w-5 h-5 text-primary" />
-                        <span className="font-medium">AI-Organized Links</span>
+                <div className="space-y-6">
+                  {/* Search Bar */}
+                  <div className="relative">
+                    <div className="bg-muted/30 p-4 rounded-lg border border-primary/20 mb-2">
+                      <div className="flex items-center space-x-3">
+                        <Search className="w-5 h-5 text-primary" />
+                        <input
+                          type="text"
+                          placeholder="Search naturally: 'that video about Instagram growth strategies'"
+                          className="w-full bg-transparent border-none focus:outline-none text-foreground placeholder:text-muted-foreground"
+                          defaultValue="content creation tips for Instagram"
+                        />
                       </div>
-                      <div className="space-y-2">
-                        {[1, 2, 3].map((i) => (
-                          <div
-                            key={i}
-                            className="bg-card/50 p-3 rounded border border-border/50 flex items-center justify-between"
-                          >
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 rounded-full bg-primary/60" />
-                              <span className="text-sm">
-                                Smart Bookmark {i}
+                    </div>
+                    <div className="text-xs text-muted-foreground ml-4">
+                      Try: "viral TikTok ideas" or "research papers on AI
+                      marketing"
+                    </div>
+                  </div>
+
+                  {/* Search Results */}
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Brain className="w-5 h-5 text-primary" />
+                        <span className="font-medium">AI-Powered Results</span>
+                      </div>
+                      <span className="text-sm text-muted-foreground">
+                        Found 3 relevant links
+                      </span>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="bg-card/50 p-4 rounded-lg border border-border/50 hover:border-primary/50 transition-all duration-300">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <h4 className="font-medium mb-1">
+                              Instagram Growth Strategies for 2024
+                            </h4>
+                            <p className="text-sm text-muted-foreground mb-2">
+                              Latest tactics for organic reach and engagement
+                            </p>
+                            <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                Instagram
+                              </span>
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                Growth
+                              </span>
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                Strategy
                               </span>
                             </div>
-                            <span className="text-xs text-muted-foreground">
-                              AI Tagged
-                            </span>
                           </div>
-                        ))}
+                          <Bookmark className="w-4 h-4 text-primary" />
+                        </div>
+                      </div>
+
+                      <div className="bg-card/50 p-4 rounded-lg border border-border/50 hover:border-primary/50 transition-all duration-300">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <h4 className="font-medium mb-1">
+                              Content Calendar Template 2024
+                            </h4>
+                            <p className="text-sm text-muted-foreground mb-2">
+                              Efficient planning for multi-platform content
+                            </p>
+                            <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                Planning
+                              </span>
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                Template
+                              </span>
+                            </div>
+                          </div>
+                          <Bookmark className="w-4 h-4 text-primary" />
+                        </div>
+                      </div>
+
+                      <div className="bg-card/50 p-4 rounded-lg border border-border/50 hover:border-primary/50 transition-all duration-300">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <h4 className="font-medium mb-1">
+                              AI Tools for Content Creation
+                            </h4>
+                            <p className="text-sm text-muted-foreground mb-2">
+                              Top AI tools to streamline your workflow
+                            </p>
+                            <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                AI Tools
+                              </span>
+                              <span className="bg-primary/10 text-primary px-2 py-0.5 rounded">
+                                Productivity
+                              </span>
+                            </div>
+                          </div>
+                          <Bookmark className="w-4 h-4 text-primary" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                  {/* Sidebar with AI features */}
-                  <div className="space-y-4">
-                    <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
-                      <div className="flex items-center space-x-2 mb-3">
+
+                  {/* Quick Add */}
+                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/20">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
                         <Zap className="w-5 h-5 text-primary" />
-                        <span className="font-medium">AI Insights</span>
+                        <span className="font-medium">Quick Add Link</span>
                       </div>
-                      <div className="text-sm text-muted-foreground">
-                        Smart summaries and context for your bookmarks
-                      </div>
+                      <Button size="sm" variant="ghost" className="text-xs">
+                        <Plus className="w-4 h-4 mr-1" /> Add Link
+                      </Button>
                     </div>
+                    <p className="text-sm text-muted-foreground">
+                      Save links with a quick note like "great Instagram reels
+                      ideas" or "research for next video". AI handles the rest!
+                    </p>
                   </div>
                 </div>
               </div>
